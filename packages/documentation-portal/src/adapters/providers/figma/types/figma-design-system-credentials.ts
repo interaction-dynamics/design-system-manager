@@ -1,5 +1,5 @@
 export interface FigmaDesignSystemCredentials {
-  userId: string
+  userId: number
   accessToken: string
   expirationDate: string
   refreshToken: string

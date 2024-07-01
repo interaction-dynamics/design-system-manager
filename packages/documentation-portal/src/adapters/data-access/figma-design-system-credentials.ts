@@ -13,3 +13,11 @@ export async function createFigmaDesignSystemCredentials(
     },
   })
 }
+
+export async function findFigmaDesignSystemCredentials(designSystemId: string) {
+  return await db.figmaDesignSystemCredentials.findFirstOrThrow({
+    where: {
+      designSystemId,
+    },
+  })
+}

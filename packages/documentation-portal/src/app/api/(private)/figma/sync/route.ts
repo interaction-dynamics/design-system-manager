@@ -10,7 +10,7 @@ import {
 } from '@/adapters/data-access/component-variants'
 import { NextRequest } from 'next/server'
 import { getUser } from '../../../_utils/get-user'
-import { fetchStyles } from '@/adapters/providers/figma/actions/fetch-styles'
+import { fetchStyles } from '@/adapters/providers/figma/actions/styles'
 import { deleteStyles, insertStyles } from '@/adapters/data-access/styles'
 
 export async function POST(request: NextRequest) {

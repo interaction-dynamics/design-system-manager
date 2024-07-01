@@ -59,6 +59,7 @@ model DesignSystem {
     pages            Page[]
     styles           Style[]
     figmaCredentials FigmaDesignSystemCredentials[]
+    FigmaFile        FigmaFile[]
 }
 
 model User {
@@ -109,10 +110,18 @@ model Style {
 
 model FigmaDesignSystemCredentials {
     id             String @id @default(auto()) @map("_id") @db.ObjectId
-    userId         String
+    userId         Int
     accessToken    String
     expirationDate String
     refreshToken   String
+
+    DesignSystem   DesignSystem? @relation(fields: [designSystemId], references: [id])
+    designSystemId String?       @db.ObjectId
+}
+
+model FigmaFile {
+    id      String @id @default(auto()) @map("_id") @db.ObjectId
+    fileKey String
 
     DesignSystem   DesignSystem? @relation(fields: [designSystemId], references: [id])
     designSystemId String?       @db.ObjectId
